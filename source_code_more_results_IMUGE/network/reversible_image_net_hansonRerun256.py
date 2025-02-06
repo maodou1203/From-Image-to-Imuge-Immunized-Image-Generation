@@ -9,7 +9,7 @@ from decoder.revert_new import Revert
 from discriminator.GANloss import GANLoss
 from discriminator.NLayerDiscriminator import NLayerDiscriminator
 from discriminator.discriminator import Discriminator
-from encoder.prep_novel import Prep_pureUnet
+from .encoder.prep_novel import Prep_pureUnet
 from localizer.localizer import Localize
 from loss.vgg_loss import VGGLoss
 from network.pure_upsample import PureUpsampling
@@ -37,7 +37,7 @@ class ReversibleImageNetwork_hanson:
         self.username = username
         self.Another = None
         """ Generator Network"""
-        #self.pretrain_net = Pretrain_deepsteg(config=config).cuda()
+        # self.pretrain_net = Pretrain_deepsteg(config=config).cuda()
         # self.encoder_decoder = Net(config=config).cuda()
         self.preprocessing_network = Prep_pureUnet(config=config).cuda()
         if torch.cuda.device_count() > 1:
